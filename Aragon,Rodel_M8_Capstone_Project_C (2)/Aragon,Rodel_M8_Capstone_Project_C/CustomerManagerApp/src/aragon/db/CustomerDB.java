@@ -95,10 +95,10 @@ public class CustomerDB {
     }
     
     /**
-    * Updates a customer's information from the database.
-    * @param customer The customer to update.
-    * @return True if customer was updated, false if not.
-    */
+     * Updates a customer's information from the database.
+     * @param customer The customer to update.
+     * @return True if customer was updated, false if not.
+     */
     public static boolean updateCustomer(Customer customer) throws DBException
     {
         String sql = "UPDATE Customer "
