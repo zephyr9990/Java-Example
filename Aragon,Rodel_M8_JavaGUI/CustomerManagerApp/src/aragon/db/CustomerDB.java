@@ -29,6 +29,8 @@ public class CustomerDB {
     /**
      * Gets the list of customers from the database.
      * @return An ArrayList of <code>Customer</code> objects.
+     * @throws DBException The exception is thrown when database cannot be
+     *  accessed.
      */
     public static ArrayList<Customer> getCustomers() throws DBException {
         String sql = "SELECT * FROM Customer "
@@ -55,6 +57,8 @@ public class CustomerDB {
      * Adds a customer to the database.
      * @param customer The customer to add
      * @return True if the addition was successful, or false if not.
+     * @throws DBException The exception is thrown when database cannot be
+     *  accessed.
      */
     public static boolean addCustomer(Customer customer) throws DBException {
         String sql = "INSERT INTO Customer (Customer_Email, Customer_FName, "
@@ -78,6 +82,8 @@ public class CustomerDB {
      * Deletes a customer from the database.
      * @param email The email of the customer to delete.
      * @return True if deletion was successful, otherwise false.
+     * @throws DBException The exception is thrown when database cannot be
+     *  accessed.
      */
     public static boolean deleteCustomer(String email) throws DBException {
         String sql = "DELETE FROM Customer "
@@ -94,6 +100,13 @@ public class CustomerDB {
         return customerDeleted;
     }
     
+    /**
+     * Updates a customer's information inside the database.
+     * @param customer The customer to be updated.
+     * @return True if update was successful, otherwise false.
+     * @throws DBException The exception is thrown when database cannot be
+     *  accessed.
+     */
     public static boolean updateCustomer(Customer customer) throws DBException
     {
         String sql = "UPDATE Customer "

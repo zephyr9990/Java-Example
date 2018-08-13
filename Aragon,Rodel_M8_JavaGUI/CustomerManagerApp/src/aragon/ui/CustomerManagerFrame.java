@@ -44,6 +44,9 @@ public class CustomerManagerFrame extends JFrame{
     private JButton deleteButton;
     private JButton exitButton;
     
+    /**
+     * Creates a customer manager frame.
+     */
     public CustomerManagerFrame() {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -105,6 +108,9 @@ public class CustomerManagerFrame extends JFrame{
         pack();
     }
     
+    /**
+     * Action to be performed when the add button is clicked. 
+     */
     private void addButtonClicked() {
         CustomerForm customerForm = new CustomerForm(
                 this, "Add Customer", false);
@@ -112,6 +118,9 @@ public class CustomerManagerFrame extends JFrame{
         customerForm.setVisible(true);
     }
     
+    /**
+     * Action to be performed when edit button is clicked.
+     */
     private void editButtonClicked() {
         if (customerTable.getSelectedRow() != -1)
         {
@@ -128,6 +137,9 @@ public class CustomerManagerFrame extends JFrame{
         }
     }
     
+    /**
+     * Action to be performed when delete button is clicked.
+     */
     private void deleteButtonClicked() {
         if (customerTable.getSelectedRow() != -1)
         {
@@ -168,10 +180,16 @@ public class CustomerManagerFrame extends JFrame{
         }
     }
     
+    /**
+     * Action to be performed when user closes the GUI.
+     */
     private void exitButtonClicked() {
         System.exit(0);
     }
     
+    /**
+     * Updates the GUI in response to database being updated.
+     */
     public void fireDatabaseUpdatedEvent() {
         customerTableModel.databaseUpdated();
     }

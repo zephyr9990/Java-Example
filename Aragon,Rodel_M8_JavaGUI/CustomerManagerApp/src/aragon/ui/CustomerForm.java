@@ -45,11 +45,24 @@ public class CustomerForm extends JDialog {
     private Customer customer;
     private int customerID;
     
+    /**
+     * Creates the customer form dialog
+     * @param parent The parent of the dialog
+     * @param title The title of the dialog
+     * @param modal Specifies whether to set as modal or not
+     */
     public CustomerForm(java.awt.Frame parent, String title, boolean modal) {
         super(parent, title, modal);
         initializeComponents();
     }
     
+    /**
+     * Creates a customer dialog with customer information
+     * @param parent The parent of the dialog
+     * @param title The title of the dialog
+     * @param modal Specifies whether to set as modal or not
+     * @param customer The customer to be displayed
+     */
     public CustomerForm(java.awt.Frame parent, String title,
             boolean modal, Customer customer) {
         this(parent, title, modal);
@@ -60,6 +73,9 @@ public class CustomerForm extends JDialog {
         lastNameField.setText(customer.getLastName());
     }
     
+    /**
+     * Initializes the components of the dialog.
+     */
     public void initializeComponents() {
         emailField = new JTextField();
         firstNameField = new JTextField();
@@ -116,6 +132,13 @@ public class CustomerForm extends JDialog {
         pack();
     }
     
+    /**
+     * Specifies the placement of data.
+     * @param x The x-coordinate for the data.
+     * @param y The y-coordinate for the data.
+     * @param anchor The alignment of the data.
+     * @return A GridBagConstraints class.
+     */
     private GridBagConstraints getConstraints(int x, int y, int anchor) {
         GridBagConstraints c = new GridBagConstraints();
         c.insets = new Insets(5,5,0,5);
@@ -125,10 +148,16 @@ public class CustomerForm extends JDialog {
         return c;
     }
     
+    /**
+     * Action to be performed when cancel is clicked.
+     */
     private void cancelButtonClicked() {
         dispose();
     }
     
+    /**
+     * Action to be performed when the confirmation button is clicked.
+     */
     private void confirmButtonClicked() {
         //if fields are not empty
         if(SwingValidator.isNotEmpty(emailField, "Email") && 
@@ -144,6 +173,9 @@ public class CustomerForm extends JDialog {
         }
     }
     
+    /**
+     * Sets the data for the customer.
+     */
     private void setData() {
         String email = emailField.getText();
         String firstName = firstNameField.getText();
@@ -152,6 +184,9 @@ public class CustomerForm extends JDialog {
         customer = new Customer(email, firstName, lastName);
     }
     
+    /**
+     * Edits a customer's information in the database. 
+     */
     private void doEdit() {
         String message = "Updated customer name to " +
                 customer.getFirstName() + " " +
@@ -167,6 +202,9 @@ public class CustomerForm extends JDialog {
         }
     }
     
+    /**
+     * Adds a customer to the database.
+     */
     private void doAdd() {
         String message = customer.getFirstName() + " " +
                 customer.getLastName() + " has been added.";
@@ -181,6 +219,9 @@ public class CustomerForm extends JDialog {
         }
     }
     
+    /**
+     * Updates the GUI in response to the database being updated.
+     */
     private void fireDatabaseUpdatedEvent() {
         CustomerManagerFrame mainWindow = (CustomerManagerFrame) getOwner();
         mainWindow.fireDatabaseUpdatedEvent();

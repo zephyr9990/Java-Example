@@ -77,6 +77,12 @@ public class SwingValidator {
         }
     }
     
+    /**
+     * Checks whether the given text within a field is an email.
+     * @param field The field to check.
+     * @param fieldName The name of the field.
+     * @return True if the value is a valid email, otherwise false.
+     */
     public static boolean isEmail(JTextField field, String fieldName) {
         String[] emailText = field.getText().split("@");
         String[] domainText = null;
