@@ -101,17 +101,11 @@ public class CustomerDB {
     }
     
     /**
-<<<<<<< HEAD:Aragon,Rodel_M8_JavaGUI/CustomerManagerApp/src/aragon/db/CustomerDB.java
      * Updates a customer's information inside the database.
      * @param customer The customer to be updated.
      * @return True if update was successful, otherwise false.
      * @throws DBException The exception is thrown when database cannot be
      *  accessed.
-=======
-     * Updates a customer's information from the database.
-     * @param customer The customer to update.
-     * @return True if customer was updated, false if not.
->>>>>>> 2fbd9ede8306312fcb954fb4be76b19f236e3b68:Aragon,Rodel_M8_Capstone_Project_C (2)/Aragon,Rodel_M8_Capstone_Project_C/CustomerManagerApp/src/aragon/db/CustomerDB.java
      */
     public static boolean updateCustomer(Customer customer) throws DBException
     {
